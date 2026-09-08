@@ -1,0 +1,14 @@
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+.DS_Store
+__pycache__/
+*.pyc
+
+# Large inputs and regenerated outputs are not tracked. See README.
+*.rds
+*.fq.gz
+*.mtx.gz
+data/
+outputs/

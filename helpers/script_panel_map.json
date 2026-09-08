@@ -1,0 +1,202 @@
+[
+ {
+  "script": "R/figS8/B16F10_GSE307143_Cxcl10.R",
+  "panels": [
+   "FigS8A"
+  ],
+  "chosen_from": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/FigS8A/B16F10_GSE307143_Cxcl10.R",
+  "chosen_date": "2026-06-02",
+  "versions_seen": 2
+ },
+ {
+  "script": "R/fig3/Fig3C_pseudobulk_DE.R",
+  "panels": [
+   "Fig3C"
+  ],
+  "chosen_from": "Data archiving/Fig3/Fig3C/Fig3C_pseudobulk_DE.R",
+  "chosen_date": "2026-09-07",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/fig3/Fig3D_percluster_DE_plots.R",
+  "panels": [
+   "Fig3D"
+  ],
+  "chosen_from": "Data archiving/Fig3/Fig3D/Fig3D_percluster_DE_plots.R",
+  "chosen_date": "2026-04-23",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/fig4/Fig4I_cxcl10_boxplot.R",
+  "panels": [
+   "Fig4I",
+   "FigS9E",
+   "FigS9F",
+   "FigS9G",
+   "FigS9H",
+   "FigS9I",
+   "FigS9J",
+   "FigS9K",
+   "FigS9L"
+  ],
+  "chosen_from": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/Fig4I/Fig4I_cxcl10_boxplot.R",
+  "chosen_date": "2026-07-25",
+  "versions_seen": 2
+ },
+ {
+  "script": "R/fig4/Fig4J_cxcl9_boxplot.R",
+  "panels": [
+   "Fig4J"
+  ],
+  "chosen_from": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/Fig4J/Fig4J_cxcl9_boxplot.R",
+  "chosen_date": "2026-07-25",
+  "versions_seen": 2
+ },
+ {
+  "script": "R/figS10/FigS10B_UMAP.R",
+  "panels": [
+   "FigS10B"
+  ],
+  "chosen_from": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/FigS10B/FigS10B_UMAP.R",
+  "chosen_date": "2026-05-24",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/figS10/FigS10C_UMAP.R",
+  "panels": [
+   "FigS10C"
+  ],
+  "chosen_from": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/FigS10C/FigS10C_UMAP.R",
+  "chosen_date": "2026-05-24",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/figS10/FigS10D_transferred_clustering.R",
+  "panels": [
+   "FigS10D"
+  ],
+  "chosen_from": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/FigS10D/FigS10D_transferred_clustering.R",
+  "chosen_date": "2026-05-24",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/figS10/FigS10E_transferred_clustering.R",
+  "panels": [
+   "FigS10E"
+  ],
+  "chosen_from": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/FigS10E/FigS10E_transferred_clustering.R",
+  "chosen_date": "2026-05-24",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/figS10/FigS10F_transferred_clustering.R",
+  "panels": [
+   "FigS10F"
+  ],
+  "chosen_from": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/FigS10F/FigS10F_transferred_clustering.R",
+  "chosen_date": "2026-05-24",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/figS4/FigS4A_volcano_ChAd.R",
+  "panels": [
+   "FigS4A"
+  ],
+  "chosen_from": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/FigS4A/FigS4A_volcano_ChAd.R",
+  "chosen_date": "2026-06-21",
+  "versions_seen": 2
+ },
+ {
+  "script": "R/figS4/FigS4F_pseudobulk_GSEA.R",
+  "panels": [
+   "FigS4F"
+  ],
+  "chosen_from": "Data archiving/FigS4/FigS4F/FigS4F_pseudobulk_GSEA.R",
+  "chosen_date": "2026-09-07",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/figS8/FigS8A_01_build_annotate.R",
+  "panels": [
+   "FigS8A"
+  ],
+  "chosen_from": "Data archiving/FigS8/FigS8A/FigS8A_01_build_annotate.R",
+  "chosen_date": "2026-09-07",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/figS8/FigS8A_02_plot_violin.R",
+  "panels": [
+   "FigS8A"
+  ],
+  "chosen_from": "Data archiving/FigS8/FigS8A/FigS8A_02_plot_violin.R",
+  "chosen_date": "2026-09-07",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/figS8/FigS8B_GSE121861_B16F10_violin.R",
+  "panels": [
+   "FigS8B"
+  ],
+  "chosen_from": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/FigS8B/FigS8B_GSE121861_B16F10_violin.R",
+  "chosen_date": "2026-06-02",
+  "versions_seen": 2
+ },
+ {
+  "script": "R/figS8/FigS8C_GSEA_ChAd_d1_vs_PBS_d1.R",
+  "panels": [
+   "FigS8C"
+  ],
+  "chosen_from": "Data archiving/FigS8/FigS8C/FigS8C_GSEA_ChAd_d1_vs_PBS_d1.R",
+  "chosen_date": "2026-04-27",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/figS5/UMAP_Exp333_Tet_cluster_abs_stats.R",
+  "panels": [
+   "FigS5C"
+  ],
+  "chosen_from": "Data archiving/FigS5/FigS5C/UMAP_Exp333_Tet_cluster_abs_stats.R",
+  "chosen_date": "2026-04-27",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/figS5/UMAP_Exp333_Tet_cluster_stats.R",
+  "panels": [
+   "FigS5B"
+  ],
+  "chosen_from": "Data archiving/FigS5/FigS5B/UMAP_Exp333_Tet_cluster_stats.R",
+  "chosen_date": "2026-04-27",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/figS5/UMAP_Exp333_Tet_clusters.R",
+  "panels": [
+   "Fig3H",
+   "Fig3I",
+   "FigS5A"
+  ],
+  "chosen_from": "Data archiving/FigS5/FigS5A/UMAP_Exp333_Tet_clusters.R",
+  "chosen_date": "2026-04-27",
+  "versions_seen": 1
+ },
+ {
+  "script": "R/figS9/biomarker_analysis.R",
+  "panels": [
+   "Fig4H",
+   "FigS8D",
+   "FigS8E",
+   "FigS9E",
+   "FigS9F",
+   "FigS9G",
+   "FigS9H",
+   "FigS9I",
+   "FigS9J",
+   "FigS9K",
+   "FigS9L"
+  ],
+  "chosen_from": "Data archiving/FigS9/FigS9E/biomarker_analysis.R",
+  "chosen_date": "2026-04-22",
+  "versions_seen": 1
+ }
+]

@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper and this archive."
+title: "Analysis code for: CXCR3 on transferred T cells enables vaccine-boosted adoptive T-cell therapy in solid tumors"
+abstract: >-
+  R and Python code used to generate the figures of Pereira Almeida et al.,
+  covering single-cell RNA-sequencing of the vaccine-draining lymph node,
+  bulk RNA-sequencing of B16F10-OVA tumours, spectral flow cytometry
+  clustering, and reanalysis of the public datasets GSE307143 and GSE121861.
+type: software
+license: MIT
+version: v1.0.0
+date-released: "2026-09-07"
+authors:
+  - family-names: "Pereira Almeida"
+    given-names: "Vinnycius"
+    affiliation: "Ludwig Institute for Cancer Research, Nuffield Department of Medicine, University of Oxford"
+    email: "vinnycius.p.almeida@gmail.com"
+  - family-names: "Garner"
+    given-names: "Lucy C."
+    affiliation: "Translational Gastroenterology and Liver Unit, Nuffield Department of Medicine, University of Oxford"
+  - family-names: "Bhandari"
+    given-names: "Aneesha"
+    affiliation: "Translational Gastroenterology and Liver Unit, Nuffield Department of Medicine, University of Oxford"
+  - family-names: "Klenerman"
+    given-names: "Paul"
+    affiliation: "Translational Gastroenterology and Liver Unit, Nuffield Department of Medicine, University of Oxford"
+  - family-names: "Van den Eynde"
+    given-names: "Benoit"
+    affiliation: "Ludwig Institute for Cancer Research, Nuffield Department of Medicine, University of Oxford"
+    email: "benoit.vandeneynde@ludwig.ox.ac.uk"
+  - family-names: "Leung"
+    given-names: "Carol Sze Ki"
+    affiliation: "Centre for Immuno-Oncology, Nuffield Department of Medicine, University of Oxford"
+    email: "carol.leung@immonc.ox.ac.uk"
+# NOTE: this lists the authors who wrote or ran analysis code. Confirm with
+# co-authors whether the full paper author list should appear instead, because
+# this becomes the author line of the dataset citation in the reference list.

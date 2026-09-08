@@ -1,0 +1,60 @@
+[
+ {
+  "script": "B16F10_GSE307143_Cxcl10.R",
+  "panels": [
+   "FigS8A"
+  ],
+  "archive_date": "2026-04-27",
+  "current_date": "2026-06-02",
+  "archive_path": "Data archiving/FigS8/FigS8A/B16F10_GSE307143_Cxcl10.R",
+  "current_path": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/FigS8A/B16F10_GSE307143_Cxcl10.R"
+ },
+ {
+  "script": "Fig4I_cxcl10_boxplot.R",
+  "panels": [
+   "Fig4I",
+   "FigS9E",
+   "FigS9F",
+   "FigS9G",
+   "FigS9H",
+   "FigS9I",
+   "FigS9J",
+   "FigS9K",
+   "FigS9L"
+  ],
+  "archive_date": "2026-04-27",
+  "current_date": "2026-07-25",
+  "archive_path": "Data archiving/FigS9/FigS9E/Fig4I_cxcl10_boxplot.R",
+  "current_path": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/Fig4I/Fig4I_cxcl10_boxplot.R"
+ },
+ {
+  "script": "Fig4J_cxcl9_boxplot.R",
+  "panels": [
+   "Fig4J"
+  ],
+  "archive_date": "2026-04-27",
+  "current_date": "2026-07-25",
+  "archive_path": "Data archiving/Fig4/Fig4J/Fig4J_cxcl9_boxplot.R",
+  "current_path": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/Fig4J/Fig4J_cxcl9_boxplot.R"
+ },
+ {
+  "script": "FigS4A_volcano_ChAd.R",
+  "panels": [
+   "FigS4A"
+  ],
+  "archive_date": "2026-04-22",
+  "current_date": "2026-06-21",
+  "archive_path": "Data archiving/FigS4/FigS4A/FigS4A_volcano_ChAd.R",
+  "current_path": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/FigS4A/FigS4A_volcano_ChAd.R"
+ },
+ {
+  "script": "FigS8B_GSE121861_B16F10_violin.R",
+  "panels": [
+   "FigS8B"
+  ],
+  "archive_date": "2026-04-27",
+  "current_date": "2026-06-02",
+  "archive_path": "Data archiving/FigS8/FigS8B/FigS8B_GSE121861_B16F10_violin.R",
+  "current_path": "From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/FigS8B/FigS8B_GSE121861_B16F10_violin.R"
+ }
+]
