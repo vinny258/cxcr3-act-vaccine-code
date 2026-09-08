@@ -9,7 +9,8 @@ abstract: >-
 type: software
 license: MIT
 version: v1.0.0
-date-released: "2026-09-07"
+date-released: "2026-09-08"
+repository-code: "https://github.com/vinny258/cxcr3-act-vaccine-code"
 authors:
   - family-names: "Pereira Almeida"
     given-names: "Vinnycius"
@@ -21,6 +22,15 @@ authors:
   - family-names: "Bhandari"
     given-names: "Aneesha"
     affiliation: "Translational Gastroenterology and Liver Unit, Nuffield Department of Medicine, University of Oxford"
+  - family-names: "Yong"
+    given-names: "Lyn"
+    affiliation: "Translational Gastroenterology and Liver Unit, Nuffield Department of Medicine, University of Oxford"
+  - family-names: "Amini"
+    given-names: "Ali"
+    affiliation: "Translational Gastroenterology and Liver Unit, Nuffield Department of Medicine, University of Oxford"
+  - family-names: "Hutchings"
+    given-names: "Claire"
+    affiliation: "Peter Medawar Building for Pathogen Research, Nuffield Department of Medicine, University of Oxford"
   - family-names: "Klenerman"
     given-names: "Paul"
     affiliation: "Translational Gastroenterology and Liver Unit, Nuffield Department of Medicine, University of Oxford"
@@ -28,10 +38,3 @@ authors:
     given-names: "Benoit"
     affiliation: "Ludwig Institute for Cancer Research, Nuffield Department of Medicine, University of Oxford"
     email: "benoit.vandeneynde@ludwig.ox.ac.uk"
-  - family-names: "Leung"
-    given-names: "Carol Sze Ki"
-    affiliation: "Centre for Immuno-Oncology, Nuffield Department of Medicine, University of Oxford"
-    email: "carol.leung@immonc.ox.ac.uk"
-# NOTE: this lists the authors who wrote or ran analysis code. Confirm with
-# co-authors whether the full paper author list should appear instead, because
-# this becomes the author line of the dataset citation in the reference list.
