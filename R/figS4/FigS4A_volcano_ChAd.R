@@ -157,6 +157,7 @@ tryCatch(
 )
 
 ggsave("FigS4A_volcano_ChAd.pdf", plot = p, width = 8, height = 8, device = "pdf")
+save_source_data(p, "FigS4A_volcano_ChAd.pdf")
 cat("Plot saved to FigS4A_volcano_ChAd.pdf\n")
 
 message("Done!")

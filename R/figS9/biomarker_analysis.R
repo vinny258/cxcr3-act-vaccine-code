@@ -246,8 +246,11 @@ cat("DEG table saved to biomarker_top_bottom_DEGs.xlsx\n")
 
 # Individual full-size plots
 ggsave("biomarker_volcano_Day1.pdf", plot = p1, width = 8, height = 8)
+save_source_data(p1, "biomarker_volcano_Day1.pdf")
 ggsave("biomarker_volcano_Day2.pdf", plot = p2, width = 8, height = 8)
+save_source_data(p2, "biomarker_volcano_Day2.pdf")
 ggsave("biomarker_volcano_Day3.pdf", plot = p3, width = 8, height = 8)
+save_source_data(p3, "biomarker_volcano_Day3.pdf")
 
 # Compact combined figure — 3/4 of A4 portrait width (158 x 110 mm)
 p1c <- make_volcano(stats_d1, "ChAd vs PBS — Day 1", genes_d1, compact = TRUE)
@@ -263,6 +266,7 @@ tryCatch(print(p3c), error = function(e) { grid::grid.newpage(); grid::grid.draw
 
 message("--- Preview shown (3 plots). Run the line below to save the combined PDF ---")
 # ggsave("biomarker_volcano_combined.pdf", plot = p_combined, width = 158, height = 110, units = "mm", device = "pdf")
+ save_source_data(p_combined, "biomarker_volcano_combined.pdf")
 
 message("Done!")
 
@@ -366,6 +370,7 @@ ggsave("biomarker_volcano_combined_DATA.png",
        plot  = p1_data | p2_data | p3_data,
        width = W_MM, height = H_MM, units = "mm",
        dpi   = 300, bg = "white")
+save_source_data(p1_data | p2_data | p3_data, "biomarker_volcano_combined_DATA.png")
 
 # Build and save PDF (text layer)
 p1_txt <- make_volcano_text_layer(stats_d1, "ChAd vs PBS \u2014 Day 1", genes_d1)
@@ -380,5 +385,6 @@ ggsave("biomarker_volcano_combined_TEXT.pdf",
        plot   = p_txt_combined,
        width  = W_MM, height = H_MM, units = "mm",
        device = cairo_pdf, bg = "transparent")
+save_source_data(p_txt_combined, "biomarker_volcano_combined_TEXT.pdf")
 
 message("Saved: biomarker_volcano_combined_DATA.png + biomarker_volcano_combined_TEXT.pdf")

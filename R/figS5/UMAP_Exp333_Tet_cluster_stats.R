@@ -142,6 +142,7 @@ ggsave("UMAP_Exp333_Tet_cluster_stats_jitter.pdf",
        plot = p_stats,
        width = 3 * length(unique(prop_df$LN_type)),
        height = 2.8 * length(cluster_order))
+save_source_data(p_stats, "UMAP_Exp333_Tet_cluster_stats_jitter.pdf")
 
 cat("Saved UMAP_Exp333_Tet_cluster_stats_jitter.pdf\n")
 
@@ -196,6 +197,7 @@ print(p_overview)
 
 ggsave("UMAP_Exp333_Tet_cluster_stats_overview.pdf",
        plot = p_overview, width = 10, height = 9)
+save_source_data(p_overview, "UMAP_Exp333_Tet_cluster_stats_overview.pdf")
 cat("Saved UMAP_Exp333_Tet_cluster_stats_overview.pdf\n")
 
 # ---- 8. Export summary tables to Excel ----------------------

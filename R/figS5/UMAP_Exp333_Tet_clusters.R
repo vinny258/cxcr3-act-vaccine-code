@@ -297,6 +297,7 @@ cat("  Saved FigS5A/UMAP_Exp333_Tet_cluster_heatmap_horizontal.pdf\n")
 dir.create(file.path(output_dir, "Fig3H"), showWarnings = FALSE)
 ggsave(file.path(output_dir, "Fig3H", "UMAP_Exp333_Tet_clusters.pdf"),
        plot = p_cluster, width = 7, height = 6)
+save_source_data(p_cluster, file.path(output_dir, "Fig3H", "UMAP_Exp333_Tet_clusters.pdf"))
 
 ggsave(file.path(output_dir, "Fig3H", "UMAP_Exp333_Tet_clusters_by_group.pdf"),
        plot = p_cluster_by_group,
@@ -310,12 +311,15 @@ ggsave(file.path(output_dir, "Fig3H", "UMAP_Exp333_Tet_clusters_by_group_LN.pdf"
 
 ggsave("UMAP_Exp333_Tet_cluster_bar_group.pdf",
        plot = p_bar_group, width = 6, height = 5)
+save_source_data(p_bar_group, "UMAP_Exp333_Tet_cluster_bar_group.pdf")
 
 ggsave("UMAP_Exp333_Tet_cluster_bar_group_LN.pdf",
        plot = p_bar_group_ln, width = 10, height = 5)
+save_source_data(p_bar_group_ln, "UMAP_Exp333_Tet_cluster_bar_group_LN.pdf")
 
 ggsave("UMAP_Exp333_Tet_cluster_dot_group.pdf",
        plot = p_dot_group, width = 6, height = 5)
+save_source_data(p_dot_group, "UMAP_Exp333_Tet_cluster_dot_group.pdf")
 
 cat("\nAll plots saved:\n")
 cat("  UMAP_Exp333_Tet_clusters.pdf\n")
@@ -370,6 +374,7 @@ print(p_density_panel)
 dir.create(file.path(output_dir, "Fig3I"), showWarnings = FALSE)
 ggsave(file.path(output_dir, "Fig3I", "UMAP_Exp333_Tet_marker_density.pdf"),
        plot = p_density_panel, width = 14, height = 9)
+save_source_data(p_density_panel, file.path(output_dir, "Fig3I", "UMAP_Exp333_Tet_marker_density.pdf"))
 cat("Saved Fig3I/UMAP_Exp333_Tet_marker_density.pdf\n")
 
 # ---- 18. Overall cell density UMAP -------------------------
@@ -386,6 +391,7 @@ print(p_cell_density)
 
 ggsave("UMAP_Exp333_Tet_cell_density.pdf",
        plot = p_cell_density, width = 7, height = 6)
+save_source_data(p_cell_density, "UMAP_Exp333_Tet_cell_density.pdf")
 cat("Saved UMAP_Exp333_Tet_cell_density.pdf\n")
 
 # ---- 19. Save updated combined_df with cluster labels ------

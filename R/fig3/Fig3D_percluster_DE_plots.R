@@ -66,7 +66,7 @@ GENES <- c("Cxcl10", "Cxcl9")
 
 # ---- 1. Load & subset Seurat (WT singlets only) ------------
 cat("Loading Seurat object...\n")
-seu <- readRDS("../shared data/wt_D0_D1.rds")
+seu <- readRDS(file.path(data_dir("wt_D0_D1.rds"), "wt_D0_D1.rds"))
 
 seu_wt <- subset(seu,
                  group   == "WT" &
@@ -361,6 +361,7 @@ pA <- ggplot(df_long, aes(x = timepoint, y = cell_type, size = pct)) +
 print(pA)
 ggsave("Fig3D_optionA_dotplot_significance.pdf",
        plot = pA, width = 7, height = 10, device = "pdf")
+save_source_data(pA, "Fig3D_optionA_dotplot_significance.pdf")
 cat("Option A saved to Fig3D_optionA_dotplot_significance.pdf\n")
 
 # ---- 6. OPTION B: Lollipop plot log2FC ± 95% CI ------------
@@ -422,6 +423,7 @@ pB <- ggplot(lollipop_df,
 print(pB)
 ggsave("Fig3D_optionB_lollipop_FC_CI.pdf",
        plot = pB, width = 10, height = 8, device = "pdf")
+save_source_data(pB, "Fig3D_optionB_lollipop_FC_CI.pdf")
 cat("Option B saved to Fig3D_optionB_lollipop_FC_CI.pdf\n")
 
 # ---- 7. OPTION C: Expressing cell count bar chart ----------
@@ -488,6 +490,7 @@ pC <- ggplot(count_df,
 print(pC)
 ggsave("Fig3D_optionC_cell_counts.pdf",
        plot = pC, width = 10, height = 8, device = cairo_pdf)
+save_source_data(pC, "Fig3D_optionC_cell_counts.pdf")
 cat("Option C saved to Fig3D_optionC_cell_counts.pdf\n")
 
 # ---- 8. OPTION D: Dot plot — n expressing + mean expression ----
@@ -586,6 +589,7 @@ pD <- ggplot(dot_df, aes(x = timepoint, y = cell_type_label)) +
 print(pD)
 ggsave("Fig3D_optionD_dotplot_expr.pdf",
        plot = pD, width = 8, height = 10, device = cairo_pdf)
+save_source_data(pD, "Fig3D_optionD_dotplot_expr.pdf")
 cat("Option D saved to Fig3D_optionD_dotplot_expr.pdf\n")
 
 # ---- 9. OPTION E: Scatter plot — transcriptional dominance ----
@@ -653,6 +657,7 @@ pE <- ggplot(scatter_df,
 print(pE)
 ggsave("Fig3D_optionE_scatter_dominance.pdf",
        plot = pE, width = 12, height = 6, device = cairo_pdf)
+save_source_data(pE, "Fig3D_optionE_scatter_dominance.pdf")
 cat("Option E saved to Fig3D_optionE_scatter_dominance.pdf\n")
 
 # ---- 10. OPTION F: Scatter — transcriptional dominance, Day 0 (baseline) ----
@@ -711,6 +716,7 @@ pF <- ggplot(scatter_df_D0,
 print(pF)
 ggsave("FigS_optionF_scatter_dominance_D0.pdf",
        plot = pF, width = 12, height = 6, device = cairo_pdf)
+save_source_data(pF, "FigS_optionF_scatter_dominance_D0.pdf")
 cat("Option F saved to FigS_optionF_scatter_dominance_D0.pdf\n")
 
 message("Done!")

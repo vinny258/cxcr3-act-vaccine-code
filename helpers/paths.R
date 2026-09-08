@@ -80,3 +80,27 @@ require_pkgs <- function(...) {
          "helpers/package_versions.csv.", call. = FALSE)
   invisible(lapply(pkgs, library, character.only = TRUE))
 }
+
+# ---- source data export (Science "data S1") ----------------------------
+# Writes the data behind a saved figure as CSV, next to the figure. Science
+# requires the tabulated values underlying every panel, including P values.
+#
+#   p <- ggplot(...) ; ggsave("Fig1B.pdf", p) ; save_source_data(p, "Fig1B.pdf")
+#
+# Set FIG_NO_SOURCE_DATA=1 to skip.
+save_source_data <- function(plot_obj, pdf_path) {
+  if (nzchar(Sys.getenv("FIG_NO_SOURCE_DATA", unset = ""))) return(invisible(NULL))
+  d <- NULL
+  # the data actually drawn, after any ggplot-level transformation
+  d <- tryCatch(ggplot2::ggplot_build(plot_obj)$plot$data, error = function(e) NULL)
+  if (!is.data.frame(d)) d <- tryCatch(plot_obj$data, error = function(e) NULL)
+  if (!is.data.frame(d) || !nrow(d)) return(invisible(NULL))
+  # drop list-columns, which cannot be written to CSV
+  keep <- !vapply(d, is.list, logical(1))
+  d <- d[, keep, drop = FALSE]
+  out <- sub("\\.(pdf|png|svg|tiff)$", "_source_data.csv", pdf_path)
+  if (identical(out, pdf_path)) out <- paste0(pdf_path, "_source_data.csv")
+  utils::write.csv(d, out, row.names = FALSE)
+  message("source data: ", basename(out), "  (", nrow(d), " rows x ", ncol(d), " cols)")
+  invisible(out)
+}

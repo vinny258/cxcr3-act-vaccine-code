@@ -88,4 +88,5 @@ p <- ggplot(top_paths, aes(NES, pathway_nice, size=size, colour=-log10(padj))) +
         strip.text=element_text(size=12, face="bold"),
         strip.background=element_rect(fill="grey92", colour=NA), panel.spacing=unit(1,"lines"))
 ggsave("FigS4F_pseudobulk_GSEA.pdf", p, width=11, height=max(6, nrow(top_paths)*0.4+2), device=cairo_pdf)
+save_source_data(p, "FigS4F_pseudobulk_GSEA.pdf")
 cat("Saved FigS4F outputs to", OUTDIR, "\nFIGS4F_DONE\n")

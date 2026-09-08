@@ -122,5 +122,6 @@ p <- ggplot() +
   theme_classic(base_size=14) + theme(plot.title=element_text(face="bold", size=13), aspect.ratio=1)
 
 ggsave(file.path(OUTDIR,"Fig3C_pseudobulk_volcano_d1_vs_d0.pdf"), p, width=8, height=8)
+save_source_data(p, file.path(OUTDIR,"Fig3C_pseudobulk_volcano_d1_vs_d0.pdf"))
 cat("Saved volcano + DE tables to", OUTDIR, "\n")
 cat("FIG3C_DONE\n")

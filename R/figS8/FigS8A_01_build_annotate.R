@@ -172,9 +172,13 @@ print(p_dot)
 print(p_cxcl10)
 
 ggsave("B16F10_UMAP_clusters.pdf",    plot = p_umap,        width = 7, height = 6)
+save_source_data(p_umap, "B16F10_UMAP_clusters.pdf")
 ggsave("B16F10_UMAP_sample.pdf",      plot = p_umap_sample, width = 7, height = 6)
+save_source_data(p_umap_sample, "B16F10_UMAP_sample.pdf")
 ggsave("B16F10_dotplot_markers.pdf",  plot = p_dot,         width = 14, height = 6)
+save_source_data(p_dot, "B16F10_dotplot_markers.pdf")
 ggsave("B16F10_Cxcl10_UMAP.pdf",     plot = p_cxcl10,      width = 7, height = 6)
+save_source_data(p_cxcl10, "B16F10_Cxcl10_UMAP.pdf")
 
 message("--- Check the plots and top markers above, then annotate clusters in SECTION 6 ---")
 
@@ -236,6 +240,7 @@ p_umap_annotated <- DimPlot(seu, reduction = "umap", label = TRUE,
 
 print(p_umap_annotated)
 ggsave("B16F10_UMAP_annotated.pdf", plot = p_umap_annotated, width = 8, height = 7)
+save_source_data(p_umap_annotated, "B16F10_UMAP_annotated.pdf")
 
 # ---- 7. Cxcl10 dot plot per cell type ----------------------
 
@@ -270,6 +275,7 @@ print(p_cxcl10_celltype)
 dir.create(file.path(output_dir, "FigS8A"), showWarnings = FALSE)
 ggsave(file.path(output_dir, "FigS8A", "Cxcl10_B16F10_celltype_GSE307143.pdf"),
        plot = p_cxcl10_celltype, width = 8, height = 5)
+save_source_data(p_cxcl10_celltype, file.path(output_dir, "FigS8A", "Cxcl10_B16F10_celltype_GSE307143.pdf"))
 
 # ---- 8. Cxcl9 dot plot per cell type (Fig S8C) -------------
 
@@ -303,6 +309,7 @@ p_cxcl9_celltype <- ggplot(cxcl9_df,
 print(p_cxcl9_celltype)
 ggsave(file.path(output_dir, "FigS8A", "Cxcl9_B16F10_celltype_GSE307143.pdf"),
        plot = p_cxcl9_celltype, width = 8, height = 5)
+save_source_data(p_cxcl9_celltype, file.path(output_dir, "FigS8A", "Cxcl9_B16F10_celltype_GSE307143.pdf"))
 
 # ---- 9. Il21r dot plot per cell type -----------------------
 
@@ -336,6 +343,7 @@ p_il21r_celltype <- ggplot(il21r_df,
 print(p_il21r_celltype)
 ggsave(file.path(output_dir, "FigS8A", "Il21r_B16F10_celltype_GSE307143.pdf"),
        plot = p_il21r_celltype, width = 8, height = 5)
+save_source_data(p_il21r_celltype, file.path(output_dir, "FigS8A", "Il21r_B16F10_celltype_GSE307143.pdf"))
 
 # ---- 10. Violin plots — Cxcl10, Cxcl9 & Il21r per cell type
 

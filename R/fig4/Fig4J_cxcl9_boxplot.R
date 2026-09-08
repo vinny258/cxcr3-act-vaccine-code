@@ -179,6 +179,7 @@ if (interactive()) {
 }
 
 ggsave("Fig4J_cxcl9_boxplot.pdf", plot = p, width = 9, height = 7, device = cairo_pdf)
+save_source_data(p, "Fig4J_cxcl9_boxplot.pdf")
 cat("Plot saved to Fig4J_cxcl9_boxplot.pdf\n")
 
 message("Done!")

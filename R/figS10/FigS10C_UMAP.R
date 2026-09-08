@@ -95,7 +95,9 @@ pa <- ggplot(D[ord,], aes(UMAP1, UMAP2, colour=Population)) +
   labs(title="CD8+ T cells (SIINFEKL stim.)",
        x="UMAP1", y="UMAP2") + th_um
 ggsave(file.path(figdir,"Fig8a_UMAP_donor_by_group.png"), pa, width=14, height=4.2, dpi=300, bg="white")
+save_source_data(pa, file.path(figdir,"Fig8a_UMAP_donor_by_group.png"))
 ggsave(file.path(figdir,"Fig8a_UMAP_donor_by_group.pdf"), pa, width=14, height=4.2, bg="white")
+save_source_data(pa, file.path(figdir,"Fig8a_UMAP_donor_by_group.pdf"))
 
 ## ---- Fig8b: per-marker expression (pooled embedding) ----
 ML <- D %>% select(UMAP1, UMAP2, all_of(keep_markers)) %>%
@@ -109,7 +111,9 @@ pb <- ggplot(ML, aes(UMAP1, UMAP2, colour=expr)) +
   labs(title="CD8+ T cells (SIINFEKL stim.)",
        x="UMAP1", y="UMAP2") + th_um
 ggsave(file.path(figdir,"Fig8b_UMAP_markers.png"), pb, width=13, height=6, dpi=300, bg="white")
+save_source_data(pb, file.path(figdir,"Fig8b_UMAP_markers.png"))
 ggsave(file.path(figdir,"Fig8b_UMAP_markers.pdf"), pb, width=13, height=6, bg="white")
+save_source_data(pb, file.path(figdir,"Fig8b_UMAP_markers.pdf"))
 
 ## ---- Fig8c: genotype overlap (donor cells only) ----
 Dd <- D[D$donor, ]
@@ -120,6 +124,8 @@ pc <- ggplot(Dd, aes(UMAP1, UMAP2, colour=geno)) +
   labs(title="Transferred (CD45.1+) cells only: Cxcr3+/+ vs Cxcr3-/- occupy the same UMAP space",
        x="UMAP1", y="UMAP2") + th_um
 ggsave(file.path(figdir,"Fig8c_UMAP_genotype.png"), pc, width=6.5, height=5, dpi=300, bg="white")
+save_source_data(pc, file.path(figdir,"Fig8c_UMAP_genotype.png"))
 ggsave(file.path(figdir,"Fig8c_UMAP_genotype.pdf"), pc, width=6.5, height=5, bg="white")
+save_source_data(pc, file.path(figdir,"Fig8c_UMAP_genotype.pdf"))
 
 cat("\nSaved Fig8a/b/c UMAP figures.\n")

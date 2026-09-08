@@ -78,5 +78,6 @@ p <- ggplot(df, aes(x = expression, y = cell_type, fill = cell_type)) +
         plot.title      = element_text(size = 8, hjust = 0.5))
 
 ggsave(file.path(OUTDIR, "FigS8A_GSE307143_violin.pdf"), p, width = 9, height = 5)
+save_source_data(p, file.path(OUTDIR, "FigS8A_GSE307143_violin.pdf"))
 cat("Wrote", file.path(OUTDIR, "FigS8A_GSE307143_violin.pdf"), "\n")
 cat("Cell types drawn:", nlevels(df$cell_type), "| genes:", paste(GENES, collapse = ", "), "\n")

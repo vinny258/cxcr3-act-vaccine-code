@@ -55,6 +55,7 @@ print(p)
 
 ggsave("FigS8B_GSE121861_B16F10_violin.pdf",
        plot = p, width = 14, height = 5)
+save_source_data(p, "FigS8B_GSE121861_B16F10_violin.pdf")
 cat("Plot saved to FigS8B_GSE121861_B16F10_violin.pdf\n")
 
 message("Done!")

@@ -207,6 +207,7 @@ tryCatch({
   if (!is.null(p_combined))
     ggsave("GSEA_ChAd_d1_vs_PBS_d1_Hallmark_Reactome_dotplot.pdf",
            plot = p_combined, width = 14, height = 12, device = "pdf")
+    save_source_data(p_combined, "GSEA_ChAd_d1_vs_PBS_d1_Hallmark_Reactome_dotplot.pdf")
   cat("Plot saved to GSEA_ChAd_d1_vs_PBS_d1_Hallmark_Reactome_dotplot.pdf\n")
 }, error = function(e) cat("PDF saving skipped:", conditionMessage(e), "\n"))
 

@@ -298,6 +298,7 @@ ggsave(file.path(output_dir, "FigS5C", "UMAP_Exp333_Tet_cluster_abs_jitter.pdf")
        plot   = p_abs_jitter,
        width  = 3 * length(unique(abs_df$LN_type)),
        height = 2.8 * length(cluster_order))
+save_source_data(p_abs_jitter, file.path(output_dir, "FigS5C", "UMAP_Exp333_Tet_cluster_abs_jitter.pdf"))
 cat("Saved FigS5C/UMAP_Exp333_Tet_cluster_abs_jitter.pdf\n")
 
 # ---- 9. Jitter plot — cluster proportions (%) --------------
@@ -354,6 +355,7 @@ ggsave(file.path(output_dir, "FigS5B", "UMAP_Exp333_Tet_cluster_prop_jitter.pdf"
        plot   = p_prop_jitter,
        width  = 3 * length(unique(prop_df$LN_type)),
        height = 2.8 * length(cluster_order))
+save_source_data(p_prop_jitter, file.path(output_dir, "FigS5B", "UMAP_Exp333_Tet_cluster_prop_jitter.pdf"))
 cat("Saved FigS5B/UMAP_Exp333_Tet_cluster_prop_jitter.pdf\n")
 
 # ---- 10. Export to Excel -----------------------------------

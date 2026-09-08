@@ -77,6 +77,7 @@ p1<-ggplot(data.frame(k=ks,wss=wss),aes(k,wss))+geom_line()+geom_point()+scale_x
 p2<-ggplot(data.frame(k=ks2,sil=sil),aes(k,sil))+geom_line()+geom_point()+scale_x_continuous(breaks=ks2)+labs(title="Silhouette")+theme_bw(base_size=11)
 p3<-ggplot(data.frame(k=seq_len(nrow(gt)),gap=gt$gap,se=gt$SE.sim),aes(k,gap))+geom_line()+geom_point()+geom_errorbar(aes(ymin=gap-se,ymax=gap+se),width=.2)+scale_x_continuous(breaks=1:10)+labs(title="Gap statistic")+theme_bw(base_size=11)
 ggsave(file.path(figdir,"Fig10_chooseK.png"),ggarrange(p1,p2,p3,ncol=3),width=13,height=4,dpi=300,bg="white")
+save_source_data(ggarrange(p1,p2,p3,ncol=3), file.path(figdir,"Fig10_chooseK.png"))
 
 ## ---- k-means on transferred cells ----
 km <- kmeans(Z, centers=K, nstart=30, iter.max=100)
@@ -121,8 +122,11 @@ p10a<-ggplot(D,aes(UMAP1,UMAP2,colour=cluster))+geom_point(size=.45,alpha=.75)+
   guides(colour=guide_legend(override.aes=list(size=3,alpha=1)))+
   labs(title="CD45.1+ T cells (SIINFEKL stim.)")+th_um
 ggsave(file.path(figdir,"Fig10a_transferred_clusters.png"),p10a,width=11,height=5,dpi=300,bg="white")
+save_source_data(p10a, file.path(figdir,"Fig10a_transferred_clusters.png"))
 ggsave(file.path(figdir,"Fig10a_transferred_clusters.pdf"),p10a,width=11,height=5,bg="white")
+save_source_data(p10a, file.path(figdir,"Fig10a_transferred_clusters.pdf"))
 ggsave(file.path(figdir,"Fig10a_AI.pdf"),rasterise(p10a,layers="Point",dpi=300),width=11,height=5,bg="white")
+save_source_data(rasterise(p10a,layers="Point",dpi=300), file.path(figdir,"Fig10a_AI.pdf"))
 
 ## Fig10b: cluster phenotype heatmap
 hm<-as.matrix(cph[,markers]); rownames(hm)<-paste0("C",cph$cluster)
@@ -141,6 +145,8 @@ p10c<-ggplot(freq,aes(geno,pct,fill=geno))+geom_boxplot(outlier.shape=NA,alpha=.
   labs(x=NULL,y="% of transferred cells in cluster")+
   theme_bw(base_size=10)+theme(panel.grid.minor=element_blank())
 ggsave(file.path(figdir,"Fig10c_cluster_freq_WTvsKO.png"),p10c,width=11,height=6,dpi=300,bg="white")
+save_source_data(p10c, file.path(figdir,"Fig10c_cluster_freq_WTvsKO.png"))
 ggsave(file.path(figdir,"Fig10c_cluster_freq_WTvsKO.pdf"),p10c,width=11,height=6,bg="white")
+save_source_data(p10c, file.path(figdir,"Fig10c_cluster_freq_WTvsKO.pdf"))
 
 cat("\nSaved Fig10a/b/c and transferred_cluster_*.csv\n")
