@@ -90,14 +90,40 @@ require_pkgs <- function(...) {
 # Set FIG_NO_SOURCE_DATA=1 to skip.
 save_source_data <- function(plot_obj, pdf_path) {
   if (nzchar(Sys.getenv("FIG_NO_SOURCE_DATA", unset = ""))) return(invisible(NULL))
-  d <- NULL
-  # the data actually drawn, after any ggplot-level transformation
-  d <- tryCatch(ggplot2::ggplot_build(plot_obj)$plot$data, error = function(e) NULL)
-  if (!is.data.frame(d)) d <- tryCatch(plot_obj$data, error = function(e) NULL)
-  if (!is.data.frame(d) || !nrow(d)) return(invisible(NULL))
-  # drop list-columns, which cannot be written to CSV
-  keep <- !vapply(d, is.list, logical(1))
-  d <- d[, keep, drop = FALSE]
+
+  clean <- function(d) {
+    if (!is.data.frame(d) || !nrow(d)) return(NULL)
+    d[, !vapply(d, is.list, logical(1)), drop = FALSE]
+  }
+
+  # 1. the plot-level data, where there is any
+  d <- clean(tryCatch(ggplot2::ggplot_build(plot_obj)$plot$data, error = function(e) NULL))
+  if (is.null(d)) d <- clean(tryCatch(plot_obj$data, error = function(e) NULL))
+
+  # 2. otherwise the per-layer data. ggplot() is often called empty, with each
+  #    geom supplying its own data, in which case the plot-level slot is a waiver.
+  if (is.null(d)) {
+    layers <- tryCatch(plot_obj$layers, error = function(e) NULL)
+    parts <- list()
+    for (i in seq_along(layers)) {
+      ld <- clean(tryCatch(layers[[i]]$data, error = function(e) NULL))
+      if (!is.null(ld)) {
+        ld$.layer <- i
+        ld$.geom  <- tryCatch(class(layers[[i]]$geom)[1], error = function(e) NA_character_)
+        parts[[length(parts) + 1]] <- ld
+      }
+    }
+    if (length(parts)) {
+      cols <- Reduce(intersect, lapply(parts, names))
+      d <- if (length(cols) > 2) do.call(rbind, lapply(parts, function(x) x[, cols, drop = FALSE]))
+           else parts[[1]]
+    }
+  }
+
+  if (is.null(d)) {
+    message("source data: nothing extractable for ", basename(pdf_path))
+    return(invisible(NULL))
+  }
   out <- sub("\\.(pdf|png|svg|tiff)$", "_source_data.csv", pdf_path)
   if (identical(out, pdf_path)) out <- paste0(pdf_path, "_source_data.csv")
   utils::write.csv(d, out, row.names = FALSE)
