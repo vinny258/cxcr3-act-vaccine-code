@@ -16,13 +16,22 @@
 # Load packages
 packages <- c("ggplot2", "ggrepel", "patchwork", "readxl", "openxlsx", "dplyr")
 installed <- packages %in% rownames(installed.packages())
-if (any(!installed)) install.packages(packages[!installed])
+
 lapply(packages, library, character.only = TRUE)
 
-# ---- 1. Load data ------------------------------------------
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+# Location-independent paths and fonts. See helpers/paths.R
+source(file.path({
+  a <- commandArgs(FALSE); ff <- sub("^--file=", "", a[grep("^--file=", a)])
+  dd <- if (length(ff)) dirname(ff) else getwd()
+  while (!file.exists(file.path(dd, "helpers", "paths.R")) && dirname(dd) != dd) dd <- dirname(dd)
+  dd
+}, "helpers", "paths.R"))
+setwd(out_dir())
 
-df <- read_excel("biomarker.xlsx")
+
+# ---- 1. Load data ------------------------------------------
+# working directory handled by helpers/paths.R
+df <- read_excel(file.path(data_dir("biomarker.xlsx"), "biomarker.xlsx"))
 df <- as.data.frame(df)
 colnames(df)[1] <- "ID"
 

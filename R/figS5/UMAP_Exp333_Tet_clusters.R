@@ -8,6 +8,9 @@ source(file.path(rprojroot_find <- {
   d
 }, "helpers", "paths.R"))
 
+# Write outputs beside this script, or wherever FIG_OUTDIR points.
+setwd(out_dir())
+
 # ============================================================
 # Cluster analysis of Tet+ CD8+ T cells — Exp333 (ACT in LN)
 # Loads pre-computed UMAP + expression data from:
@@ -31,10 +34,6 @@ source(file.path(rprojroot_find <- {
 # ---- 0. Packages -------------------------------------------
 pkgs_cran <- c("ggplot2", "dplyr", "tidyr", "patchwork",
                "RColorBrewer", "viridis", "scales", "pheatmap")
-
-for (p in pkgs_cran)
-  if (!requireNamespace(p, quietly = TRUE)) install.packages(p)
-
 lapply(pkgs_cran, library, character.only = TRUE)
 
 # ---- 1. Paths ----------------------------------------------
@@ -43,7 +42,7 @@ output_dir <- out_dir()
 
 # ---- 2. Load data ------------------------------------------
 cat("Loading combined_df...\n")
-combined_df <- readRDS("UMAP_Exp333_Tet_combined_df.rds")
+combined_df <- readRDS(file.path(data_dir("UMAP_Exp333_Tet_combined_df.rds"), "UMAP_Exp333_Tet_combined_df.rds"))
 
 cat("Dimensions:", nrow(combined_df), "cells x", ncol(combined_df), "columns\n")
 cat("Groups:", paste(unique(combined_df$Group), collapse = ", "), "\n")

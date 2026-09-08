@@ -8,6 +8,9 @@ source(file.path(rprojroot_find <- {
   d
 }, "helpers", "paths.R"))
 
+# Write outputs beside this script, or wherever FIG_OUTDIR points.
+setwd(out_dir())
+
 # ============================================================
 # Figure:  Figure S4A
 # Title:   Volcano plot — ChAdOx1 prime vs baseline
@@ -24,13 +27,13 @@ source(file.path(rprojroot_find <- {
 # ---- 0. Packages -------------------------------------------
 packages <- c("ggplot2", "ggrepel", "dplyr")
 installed <- packages %in% rownames(installed.packages())
-if (any(!installed)) install.packages(packages[!installed])
+
 lapply(packages, library, character.only = TRUE)
 
 # ---- 1. Load data ------------------------------------------
 # working directory handled by helpers/paths.R
 
-df <- read.csv("FigS4A_volcano_ChAd.csv", stringsAsFactors = FALSE)
+df <- read.csv(file.path(data_dir("FigS4A_volcano_ChAd.csv"), "FigS4A_volcano_ChAd.csv"), stringsAsFactors = FALSE)
 cat("Loaded:", nrow(df), "genes\n")
 
 # ---- 2. Genes to highlight (uppercase — human convention) --

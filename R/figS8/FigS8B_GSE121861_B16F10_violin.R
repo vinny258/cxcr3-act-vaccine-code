@@ -7,10 +7,13 @@ source(file.path({
   d
 }, "helpers", "paths.R"))
 
+# Write outputs beside this script, or wherever FIG_OUTDIR points.
+setwd(out_dir())
+
 # ============================================================
 # Figure:  Figure S8B
 # Title:   Cxcl10 & Cxcl9 expression per cell type in B16F10 tumours
-#          (scRNA-seq, GSE121861, Jin et al. 2018, Cell Reports)
+#          (scRNA-seq, GSE121861, Kumar et al. 2018, Cell Reports)
 # Method:  Subset B16F10 cells from pan-tumour Seurat object;
 #          re-normalise using B16F10 cells only; violin plots
 #          per annotated cell type (cell types with < 5 cells excluded)
@@ -22,11 +25,9 @@ source(file.path({
 # ---- 0. Packages -------------------------------------------
 pkgs <- c("Seurat", "ggplot2", "patchwork")
 installed <- pkgs %in% rownames(installed.packages())
-if (any(!installed)) install.packages(pkgs[!installed])
+
 lapply(pkgs, library, character.only = TRUE)
-
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-
+# working directory handled by helpers/paths.R
 # ---- 1. Load pan-tumour Seurat object ----------------------
 seu_all <- readRDS(file.path(data_dir("AllTumors_seurat.rds"), "AllTumors_seurat.rds"))
 cat("Loaded AllTumors object:", ncol(seu_all), "cells\n")

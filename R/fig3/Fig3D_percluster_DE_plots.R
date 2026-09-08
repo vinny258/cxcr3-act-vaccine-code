@@ -43,11 +43,6 @@
 # ============================================================
 
 # ---- 0. Packages -------------------------------------------
-if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
-if (!requireNamespace("DESeq2",      quietly = TRUE)) BiocManager::install("DESeq2")
-for (p in c("ggplot2", "dplyr", "tidyr"))
-  if (!requireNamespace(p, quietly = TRUE)) install.packages(p)
-
 library(Seurat)
 library(DESeq2)
 library(ggplot2)
@@ -62,6 +57,9 @@ source(file.path(rprojroot_find <- {
   while (!file.exists(file.path(d, "helpers", "paths.R")) && dirname(d) != d) d <- dirname(d)
   d
 }, "helpers", "paths.R"))
+
+# Write outputs beside this script, or wherever FIG_OUTDIR points.
+setwd(out_dir())
 
 
 GENES <- c("Cxcl10", "Cxcl9")
@@ -593,7 +591,6 @@ cat("Option D saved to Fig3D_optionD_dotplot_expr.pdf\n")
 # ---- 9. OPTION E: Scatter plot — transcriptional dominance ----
 cat("\nGenerating Option E — scatter plot: transcriptional dominance...\n")
 
-if (!requireNamespace("ggrepel", quietly = TRUE)) install.packages("ggrepel")
 library(ggrepel)
 
 scatter_df <- dot_df %>%

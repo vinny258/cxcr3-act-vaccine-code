@@ -23,7 +23,7 @@
 # ---- 0. Packages -------------------------------------------
 pkgs <- c("Seurat", "ggplot2", "dplyr", "ggrepel", "patchwork", "scales")
 installed <- pkgs %in% rownames(installed.packages())
-if (any(!installed)) install.packages(pkgs[!installed])
+
 lapply(pkgs, library, character.only = TRUE)
 
 script_dir <- local({

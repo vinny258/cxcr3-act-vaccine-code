@@ -11,21 +11,32 @@
 # ---- 0. Packages -------------------------------------------
 packages <- c("ggplot2", "readxl", "dplyr", "tidyr")
 installed <- packages %in% rownames(installed.packages())
-if (any(!installed)) install.packages(packages[!installed])
+
 lapply(packages, library, character.only = TRUE)
+
+# Location-independent paths and fonts. See helpers/paths.R
+source(file.path({
+  a <- commandArgs(FALSE); ff <- sub("^--file=", "", a[grep("^--file=", a)])
+  dd <- if (length(ff)) dirname(ff) else getwd()
+  while (!file.exists(file.path(dd, "helpers", "paths.R")) && dirname(dd) != dd) dd <- dirname(dd)
+  dd
+}, "helpers", "paths.R"))
+setwd(out_dir())
+
 
 # ---- 1. Load data ------------------------------------------
 if (requireNamespace("rstudioapi", quietly = TRUE) && rstudioapi::isAvailable()) {
-  setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+# working directory handled by helpers/paths.R
 }
 
-df <- read_excel("Fig4I_cxcl10_boxplot.xlsx", sheet = "biomarker_raw")
+df <- read_excel(file.path(data_dir("biomarker.xlsx"), "biomarker.xlsx"), sheet = "biomarker_raw")
 df <- as.data.frame(df)
 
 # ---- 2. Extract CXCL10 row ---------------------------------
 cxcl10 <- df[!is.na(df$gene_name) & tolower(df$gene_name) == "cxcl10", ]
 
 if (nrow(cxcl10) == 0) stop("Cxcl10 not found in gene_name column.")
+
 if (nrow(cxcl10) > 1) {
   cat("Multiple Cxcl10 rows found — using the one with highest mean FPKM.\n")
   fpkm_cols_all <- grep("_FPKM$", colnames(cxcl10), value = TRUE)

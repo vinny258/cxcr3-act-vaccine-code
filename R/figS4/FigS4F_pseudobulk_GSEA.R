@@ -21,6 +21,9 @@ source(file.path(rprojroot_find <- {
   d
 }, "helpers", "paths.R"))
 
+# Write outputs beside this script, or wherever FIG_OUTDIR points.
+setwd(out_dir())
+
 
 BASE   <- data_dir("the upstream analysis outputs")
 INPUT  <- file.path(BASE, "Fig3C", "FigS4F_pseudobulk_GSEA.csv")  # produced by Fig3C (~ day)

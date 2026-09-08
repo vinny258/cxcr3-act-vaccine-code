@@ -8,7 +8,7 @@ __pycache__/
 
 # Large inputs and regenerated outputs are not tracked. See README.
 *.rds
+!data/*.rds
 *.fq.gz
 *.mtx.gz
-data/
 outputs/

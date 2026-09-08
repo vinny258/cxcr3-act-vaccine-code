@@ -30,6 +30,9 @@ source(file.path(rprojroot_find <- {
   d
 }, "helpers", "paths.R"))
 
+# Write outputs beside this script, or wherever FIG_OUTDIR points.
+setwd(out_dir())
+
 
 OUTDIR <- out_dir()
 RDS <- file.path(data_dir("wt_D0_D1.rds"), "wt_D0_D1.rds")

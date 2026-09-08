@@ -8,6 +8,9 @@ source(file.path(rprojroot_find <- {
   d
 }, "helpers", "paths.R"))
 
+# Write outputs beside this script, or wherever FIG_OUTDIR points.
+setwd(out_dir())
+
 # ============================================================
 # Cluster analysis — absolute cell numbers per LN
 # Exp333 — Tet+ CD8+ T cells (ACT in LN)
@@ -45,8 +48,6 @@ pkgs <- c("ggplot2", "dplyr", "tidyr", "rstatix",
           "ggpubr", "scales", "writexl", "readxl")
 
 for (p in pkgs)
-  if (!requireNamespace(p, quietly = TRUE))
-    install.packages(p, repos = "https://cloud.r-project.org")
 
 lapply(pkgs, library, character.only = TRUE)
 
@@ -56,7 +57,7 @@ output_dir <- out_dir()
 
 # ---- 2. Load cluster data from UMAP RDS --------------------
 cat("Loading combined_df...\n")
-combined_df <- readRDS("UMAP_Exp333_Tet_combined_df.rds")
+combined_df <- readRDS(file.path(data_dir("UMAP_Exp333_Tet_combined_df.rds"), "UMAP_Exp333_Tet_combined_df.rds"))
 cat("Dimensions:", nrow(combined_df), "cells x", ncol(combined_df), "cols\n")
 
 # ---- 3. Per-sample cluster proportions ---------------------

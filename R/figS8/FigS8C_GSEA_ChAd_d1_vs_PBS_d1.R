@@ -13,23 +13,28 @@
 # ============================================================
 
 # ---- 0. Install packages -----------------------------------
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
 
 bioc_packages <- c("clusterProfiler", "enrichplot")
 bioc_installed <- bioc_packages %in% rownames(installed.packages())
-if (any(!bioc_installed)) BiocManager::install(bioc_packages[!bioc_installed])
 
 cran_packages <- c("msigdbr", "ggplot2", "readxl", "openxlsx", "dplyr", "stringr")
 cran_installed <- cran_packages %in% rownames(installed.packages())
-if (any(!cran_installed)) install.packages(cran_packages[!cran_installed])
 
 lapply(c(bioc_packages, cran_packages), library, character.only = TRUE)
 
-# ---- 1. Load data ------------------------------------------
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+# Location-independent paths and fonts. See helpers/paths.R
+source(file.path({
+  a <- commandArgs(FALSE); ff <- sub("^--file=", "", a[grep("^--file=", a)])
+  dd <- if (length(ff)) dirname(ff) else getwd()
+  while (!file.exists(file.path(dd, "helpers", "paths.R")) && dirname(dd) != dd) dd <- dirname(dd)
+  dd
+}, "helpers", "paths.R"))
+setwd(out_dir())
 
-df <- read_excel("FigS8C_GSEA_ChAd_d1_vs_PBS_d1.xlsx", sheet = "biomarker_raw")
+
+# ---- 1. Load data ------------------------------------------
+# working directory handled by helpers/paths.R
+df <- read_excel(file.path(data_dir("biomarker.xlsx"), "biomarker.xlsx"), sheet = "biomarker_raw")
 df <- as.data.frame(df)
 cat("Loaded:", nrow(df), "genes\n")
 

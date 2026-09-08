@@ -21,6 +21,9 @@ source(file.path(rprojroot_find <- {
   d
 }, "helpers", "paths.R"))
 
+# Write outputs beside this script, or wherever FIG_OUTDIR points.
+setwd(out_dir())
+
 set.seed(315)
 base <- data_dir("the Exp333 analysis outputs")
 setwd(base); fdir <- "OMIQ analysis/From OMIQ"
