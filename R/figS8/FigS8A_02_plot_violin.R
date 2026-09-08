@@ -30,6 +30,33 @@ RDS    <- Sys.getenv("FIGS8A_RDS",
 if (!file.exists(RDS))
   stop("Annotated object not found: ", RDS, "\nRun FigS8A_01_build_annotate.R first.")
 
+
+# Source-data export. Uses helpers/paths.R when this script sits inside the code
+# repository; falls back to a local definition so the script also works as a
+# standalone copy in the per-panel archive.
+local({
+  d <- script_dir
+  h <- NULL
+  dd <- if (is.function(d)) d() else d
+  while (!is.null(dd) && nzchar(dd) && dirname(dd) != dd) {
+    cand <- file.path(dd, "helpers", "paths.R")
+    if (file.exists(cand)) { h <- cand; break }
+    dd <- dirname(dd)
+  }
+  if (!is.null(h)) source(h, local = FALSE)
+})
+if (!exists("save_source_data")) {
+  save_source_data <- function(plot_obj, pdf_path) {
+    d <- tryCatch(plot_obj$data, error = function(e) NULL)
+    if (!is.data.frame(d) || !nrow(d)) return(invisible(NULL))
+    d <- d[, !vapply(d, is.list, logical(1)), drop = FALSE]
+    out <- sub("\\.pdf$", "_source_data.csv", pdf_path)
+    utils::write.csv(d, out, row.names = FALSE)
+    message("source data: ", basename(out), "  (", nrow(d), " rows)")
+    invisible(out)
+  }
+}
+
 seu <- readRDS(RDS)
 GENES <- c("Cxcl10", "Cxcl9")           # Il21r was in the original call, not in the panel
 
