@@ -1,3 +1,12 @@
+
+# Location-independent paths and fonts. See helpers/paths.R
+source(file.path({
+  a <- commandArgs(FALSE); f <- sub("^--file=", "", a[grep("^--file=", a)])
+  d <- if (length(f)) dirname(f) else getwd()
+  while (!file.exists(file.path(d, "helpers", "paths.R")) && dirname(d) != d) d <- dirname(d)
+  d
+}, "helpers", "paths.R"))
+
 # ============================================================
 # Figure:  Figure S8B
 # Title:   Cxcl10 & Cxcl9 expression per cell type in B16F10 tumours
@@ -19,7 +28,7 @@ lapply(pkgs, library, character.only = TRUE)
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 # ---- 1. Load pan-tumour Seurat object ----------------------
-seu_all <- readRDS("C:/Users/valmeida/Ludwig Institute for Cancer Research Dropbox/Vinnycius Pereira Almeida/BVDE Lab/Mouse Exp/B6/Exp 325 - ChAd CXCL10/Bulk RNA seq/Analysis/Decon/AllTumors_seurat.rds")
+seu_all <- readRDS(file.path(data_dir("AllTumors_seurat.rds"), "AllTumors_seurat.rds"))
 cat("Loaded AllTumors object:", ncol(seu_all), "cells\n")
 cat("Cell types in B16F10:\n")
 print(table(seu_all$cell_type[seu_all$tumor_model == "B16F10"]))

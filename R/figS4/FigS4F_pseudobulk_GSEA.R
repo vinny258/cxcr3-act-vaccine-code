@@ -12,10 +12,19 @@
 # ============================================================
 library(fgsea); library(msigdbr); library(dplyr); library(ggplot2); library(tibble)
 
-BASE   <- "/Users/vinny/Library/CloudStorage/Dropbox-LudwigInstituteforCancerResearch/Vinnycius Pereira Almeida/Vinny Paper Folder/From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts"
+# Location-independent paths and fonts. See helpers/paths.R
+source(file.path(rprojroot_find <- {
+  d <- tryCatch(dirname(sub("^--file=", "", commandArgs(FALSE)[grep("^--file=", commandArgs(FALSE))])),
+                error = function(e) getwd())
+  if (!length(d) || !nzchar(d)) d <- getwd()
+  while (!file.exists(file.path(d, "helpers", "paths.R")) && dirname(d) != d) d <- dirname(d)
+  d
+}, "helpers", "paths.R"))
+
+
+BASE   <- data_dir("the upstream analysis outputs")
 INPUT  <- file.path(BASE, "Fig3C", "FigS4F_pseudobulk_GSEA.csv")  # produced by Fig3C (~ day)
 OUTDIR <- file.path(BASE, "FigS4F")
-setwd(OUTDIR)
 
 de <- read.csv(INPUT, stringsAsFactors = FALSE)
 stopifnot(all(c("gene","log2FoldChange","stat","padj") %in% colnames(de)))

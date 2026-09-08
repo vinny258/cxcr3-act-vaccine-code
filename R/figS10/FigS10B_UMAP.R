@@ -11,8 +11,18 @@
 ## =====================================================================
 suppressMessages({library(flowCore); library(dplyr); library(tidyr)
                   library(ggplot2); library(uwot); library(viridis)})
+
+# Location-independent paths and fonts. See helpers/paths.R
+source(file.path(rprojroot_find <- {
+  d <- tryCatch(dirname(sub("^--file=", "", commandArgs(FALSE)[grep("^--file=", commandArgs(FALSE))])),
+                error = function(e) getwd())
+  if (!length(d) || !nzchar(d)) d <- getwd()
+  while (!file.exists(file.path(d, "helpers", "paths.R")) && dirname(d) != d) d <- dirname(d)
+  d
+}, "helpers", "paths.R"))
+
 set.seed(315)
-base <- "C:/Users/valmeida/Ludwig Institute for Cancer Research Dropbox/Vinnycius Pereira Almeida/BVDE Lab/Mouse Exp/B6/Exp 315"
+base <- data_dir("the Exp333 analysis outputs")
 setwd(base); fdir <- "OMIQ analysis/From OMIQ"
 caldir <- "R analysis/cal"; figdir <- "R analysis/figures"
 

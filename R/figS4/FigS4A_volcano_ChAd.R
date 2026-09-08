@@ -1,3 +1,13 @@
+
+# Location-independent paths and fonts. See helpers/paths.R
+source(file.path(rprojroot_find <- {
+  d <- tryCatch(dirname(sub("^--file=", "", commandArgs(FALSE)[grep("^--file=", commandArgs(FALSE))])),
+                error = function(e) getwd())
+  if (!length(d) || !nzchar(d)) d <- getwd()
+  while (!file.exists(file.path(d, "helpers", "paths.R")) && dirname(d) != d) d <- dirname(d)
+  d
+}, "helpers", "paths.R"))
+
 # ============================================================
 # Figure:  Figure S4A
 # Title:   Volcano plot — ChAdOx1 prime vs baseline
@@ -18,11 +28,7 @@ if (any(!installed)) install.packages(packages[!installed])
 lapply(packages, library, character.only = TRUE)
 
 # ---- 1. Load data ------------------------------------------
-if (requireNamespace("rstudioapi", quietly = TRUE) && rstudioapi::isAvailable()) {
-  setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-} else {
-  setwd("/Users/vinny/Library/CloudStorage/Dropbox-LudwigInstituteforCancerResearch/Vinnycius Pereira Almeida/Vinny Paper Folder/From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/FigS4A")
-}
+# working directory handled by helpers/paths.R
 
 df <- read.csv("FigS4A_volcano_ChAd.csv", stringsAsFactors = FALSE)
 cat("Loaded:", nrow(df), "genes\n")

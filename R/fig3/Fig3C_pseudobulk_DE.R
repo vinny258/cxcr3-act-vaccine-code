@@ -21,8 +21,18 @@
 library(Seurat); library(DESeq2); library(Matrix)
 library(ggplot2); library(ggrepel); library(dplyr)
 
-OUTDIR <- "/Users/vinny/Library/CloudStorage/Dropbox-LudwigInstituteforCancerResearch/Vinnycius Pereira Almeida/Vinny Paper Folder/From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/Fig3C"
-RDS    <- "/Users/vinny/Library/CloudStorage/Dropbox-LudwigInstituteforCancerResearch/Vinnycius Pereira Almeida/Vinny Paper Folder/From Dropbox/Lab members/Vinny/DPhil Clinical Medicine/ATC + vaccines paper - VPA/Science Immunology/R scripts/shared data/wt_D0_D1.rds"
+# Location-independent paths and fonts. See helpers/paths.R
+source(file.path(rprojroot_find <- {
+  d <- tryCatch(dirname(sub("^--file=", "", commandArgs(FALSE)[grep("^--file=", commandArgs(FALSE))])),
+                error = function(e) getwd())
+  if (!length(d) || !nzchar(d)) d <- getwd()
+  while (!file.exists(file.path(d, "helpers", "paths.R")) && dirname(d) != d) d <- dirname(d)
+  d
+}, "helpers", "paths.R"))
+
+
+OUTDIR <- out_dir()
+RDS <- file.path(data_dir("wt_D0_D1.rds"), "wt_D0_D1.rds")
 PCT_THRESHOLD <- 0.05     # min fraction of cells expressing a gene (either timepoint)
 FC_THRESH <- 0.5; P_THRESH <- 0.05
 

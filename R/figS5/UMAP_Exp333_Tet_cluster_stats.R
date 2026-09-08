@@ -1,3 +1,13 @@
+
+# Location-independent paths and fonts. See helpers/paths.R
+source(file.path(rprojroot_find <- {
+  d <- tryCatch(dirname(sub("^--file=", "", commandArgs(FALSE)[grep("^--file=", commandArgs(FALSE))])),
+                error = function(e) getwd())
+  if (!length(d) || !nzchar(d)) d <- getwd()
+  while (!file.exists(file.path(d, "helpers", "paths.R")) && dirname(d) != d) d <- dirname(d)
+  d
+}, "helpers", "paths.R"))
+
 # ============================================================
 # Statistical comparison of cluster proportions across groups
 # Exp333 — Tet+ CD8+ T cells (ACT in LN)
@@ -20,8 +30,7 @@ for (p in pkgs)
 lapply(pkgs, library, character.only = TRUE)
 
 # ---- 1. Paths ----------------------------------------------
-analysis_dir <- "C:/Users/valmeida/Ludwig Institute for Cancer Research Dropbox/Vinnycius Pereira Almeida/BVDE Lab/Mouse Exp/B10D2.DBA-2/Exp333_ACT in LN/Analysis"
-setwd(analysis_dir)
+analysis_dir <- out_dir()
 
 # ---- 2. Load data ------------------------------------------
 cat("Loading combined_df...\n")
